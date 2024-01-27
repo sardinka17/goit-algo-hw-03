@@ -1,12 +1,14 @@
 import random
 
-def get_numbers_ticket(min, max, quantity):
+
+def get_numbers_ticket(start, end, quantity):
     random_numbers = []
-    if (min >= 1 and max <= 1000) and (quantity > 0 and quantity < max):
-        numbers = list(range(min, max + 1))
+
+    if (start >= 1 and end <= 1000) and (quantity > 0 and quantity < end) and (quantity <= end - start):
+        numbers = list(range(start, end + 1))
         random_numbers = random.sample(numbers, quantity)
         random_numbers.sort()
 
     return random_numbers
 
-print(f"Ваші лотерейні числа: {get_numbers_ticket(1, 1000, 7)}")
+print(f"Ваші лотерейні числа: {get_numbers_ticket(10, 14, 6)}")

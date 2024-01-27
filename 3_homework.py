@@ -8,6 +8,9 @@ def normalize_phone(phone_number):
     pattern = r"^(380|80|0)"
     replacement = "+380"
     normalized_phone = re.sub(pattern, replacement, normalized_phone)
+
+    if normalized_phone.startswith("+") == False:
+        normalized_phone = f"+{normalized_phone}"
     
     return normalized_phone
 
@@ -22,6 +25,8 @@ raw_numbers = [
     "(050)8889900",
     "38050-111-22-22",
     "38050 111 22 11   ",
+    "972545379039",
+    "+972545379039"
 ]
 
 print(f"{raw_numbers}")
