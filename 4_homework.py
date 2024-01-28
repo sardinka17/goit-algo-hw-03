@@ -13,7 +13,7 @@ def get_upcoming_birthdays(users):
             congratulation_date = birthday # set initial value of congratulation date as birthday 
 
             if birthday_day_of_week  == 5 or birthday_day_of_week == 6: # check if birthday will be during a weekend
-                next_monday = date_today + timedelta(days=7-date_today.timetuple().tm_wday) # calculates date of next Monday
+                next_monday = birthday + timedelta(days=7-birthday.timetuple().tm_wday) # calculates date of next Monday
                 congratulation_date = next_monday
                 
             upcoming_birthdays.append({"name": user["name"], "congratulation_date": congratulation_date.strftime("%Y.%m.%d")}) # add user to the list with the correct congratulation date 
@@ -22,8 +22,9 @@ def get_upcoming_birthdays(users):
 
 users = [
     {"name": "John Doe", "birthday": "1985.01.23"},
-    {"name": "Jane Smith", "birthday": "1990.01.27"},
-    {"name": "Tom Bob", "birthday": "1975.01.26"}
+    {"name": "Jane Smith", "birthday": "1990.01.29"},
+    {"name": "Tom Bob", "birthday": "1975.01.30"},
+    {'name': 'John Dark', 'birthday': '1985.02.03'}
 ]
 
 upcoming_birthdays = get_upcoming_birthdays(users)
